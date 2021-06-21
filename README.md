@@ -1,3 +1,7 @@
+UML Component Diagram
+
+![image](https://user-images.githubusercontent.com/47904677/122808802-009c2700-d2d6-11eb-906e-253f11fce7c9.png)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
