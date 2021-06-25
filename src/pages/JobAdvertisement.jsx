@@ -9,7 +9,7 @@ export default function JobAdvertisement() {
   useEffect(()=>{
       let jobAdvertisementService = new JobAdvertisementService()
       jobAdvertisementService.getJobAdvertisement().then(result=>setJobAdvertisements(result.data.data))
-  })
+  },[])
 
   return (
     <div>

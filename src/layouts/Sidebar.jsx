@@ -1,4 +1,5 @@
 import React from 'react'
+import { NavLink } from 'react-router-dom'
 import { Dropdown, Icon, Input, Menu } from 'semantic-ui-react'
 
 export default function Sidebar() {
@@ -9,49 +10,51 @@ export default function Sidebar() {
           <Input placeholder='Search...' />
         </Menu.Item>
 
+        <Menu.Item as={NavLink} to="/jobAdvertisements" name='jobAdvertisements'>
+          <Icon name='list' />
+          Job Advertisements
+        </Menu.Item>
+
+        <Menu.Item as={NavLink} to="/employee" name='employeeList'>
+          <Icon name='handshake outline' />
+          Employee List
+        </Menu.Item>
+
         <Menu.Item>
-          Home
+          Resume
           <Menu.Menu>
             <Menu.Item
               name='search'
 
             >
-              Search
+              School
             </Menu.Item>
             <Menu.Item
               name='add'
 
             >
-              Add
+              Skill
             </Menu.Item>
             <Menu.Item
               name='about'
     
             >
-              Remove
+              Language
+            </Menu.Item>
+            <Menu.Item
+              name='search'
+
+            >
+              Job Experience
             </Menu.Item>
           </Menu.Menu>
         </Menu.Item>
 
-        <Menu.Item
-          name='browse'
-
-        >
-          <Icon name='grid layout' />
-          Browse
-        </Menu.Item>
-        <Menu.Item
-          name='messages'
-
-        >
-          Messages
-        </Menu.Item>
-
-        <Dropdown item text='More'>
+        <Dropdown item text='Profil'>
           <Dropdown.Menu>
-            <Dropdown.Item icon='edit' text='Edit Profile' />
-            <Dropdown.Item icon='globe' text='Choose Language' />
-            <Dropdown.Item icon='settings' text='Account Settings' />
+            <Dropdown.Item icon='edit' text='Profili Düzenle' />
+            <Dropdown.Item icon='globe' text='Dili Değiştir' />
+            <Dropdown.Item icon='settings' text='Hesap Ayarları' />
           </Dropdown.Menu>
         </Dropdown>
       </Menu>
