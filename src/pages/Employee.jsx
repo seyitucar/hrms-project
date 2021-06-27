@@ -29,14 +29,14 @@ export default function Employee() {
           <Table.Body>
             {employees.map((employee) => (
               <Table.Row key={employee.id}>
-                <Table.Cell><Link to={`/employeeList/${employee.id}`}>{employee.firstName}</Link></Table.Cell>
+                <Table.Cell><Link to={`/employee/${employee.id}`}>{employee.firstName}</Link></Table.Cell>
                 <Table.Cell>{employee.lastName}</Table.Cell>
                 <Table.Cell>{employee.email}</Table.Cell>
                 <Table.Cell>{employee.nationalityId}</Table.Cell>
                 <Table.Cell>{employee.birthYear}</Table.Cell>
                 <Table.HeaderCell>
-                  <Button basic color='red' content='Red' size="tiny"><Icon name='delete'/>Sil</Button>
-                  <Button basic color='green' content='Green' size="tiny"><Icon name='edit'/>Güncelle</Button>
+                  <Button basic color='red' size="tiny"><Icon name='delete'/>Sil</Button>
+                  <Button basic color='green' size="tiny"><Icon name='edit'/>Güncelle</Button>
                 </Table.HeaderCell>
   
               </Table.Row>

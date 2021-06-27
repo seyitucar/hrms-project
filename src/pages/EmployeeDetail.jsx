@@ -12,7 +12,7 @@ export default function EmployeeDetail() {
     useEffect(() => {
       let employeeService = new EmployeeService();
       employeeService.getById(id).then((result) => setEmployee(result.data.data));
-    },[]);
+    });
 
     return (
         <div>
