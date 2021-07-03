@@ -5,7 +5,7 @@ import { Dropdown, Icon, Input, Menu } from 'semantic-ui-react'
 export default function Sidebar() {
     return (
         <div>
-     <Menu vertical size="large" class="ui menu">
+     <Menu vertical size="large" className="ui menu">
         <Menu.Item>
           <Input placeholder='Search...' />
         </Menu.Item>

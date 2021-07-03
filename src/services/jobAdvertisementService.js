@@ -3,7 +3,7 @@ import axios from "axios";
 export default class JobAdvertisementService {
 
     add(jobAdvertisement) {
-        return axios.push("http://localhost:8080/api/jobAdvertisements/add",jobAdvertisement);
+        return axios.post("http://localhost:8080/api/jobAdvertisements/add",jobAdvertisement);
     }
 
     getJobAdvertisement() {

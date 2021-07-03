@@ -12,6 +12,6 @@ export default function HrmsBooleanInput({...props}) {
             {meta.touched && !!meta.error ? (
               <Label pointing basic color="red" content={meta.error}></Label>  
             ):null}
-        </FormField>
+        </FormField> 
     )
 }
