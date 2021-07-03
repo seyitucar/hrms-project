@@ -5,7 +5,7 @@ import { Dropdown, Icon, Input, Menu } from 'semantic-ui-react'
 export default function Sidebar() {
     return (
         <div>
-     <Menu vertical size="large" class="ui menu">
+     <Menu vertical size="large" className="ui menu">
         <Menu.Item>
           <Input placeholder='Search...' />
         </Menu.Item>
@@ -15,13 +15,19 @@ export default function Sidebar() {
           Job Advertisements
         </Menu.Item>
 
+        <Menu.Item as={NavLink} to="/jobAdvertisementsConfirm" name='jobAdvertisementsConfirm'>
+          <Icon name='announcement' />
+          Job Advertisements Confirm
+        </Menu.Item>
+
+
         <Menu.Item as={NavLink} to="/employee" name='employee'>
           <Icon name='handshake outline' />
           Employee List
         </Menu.Item>
 
         <Menu.Item as={NavLink} to="/jobAdvertisementAdd" name='jobAdvertisementAdd'>
-          <Icon name='handshake outline' />
+          <Icon name='band aid' />
           JobAdvertisement Add
         </Menu.Item>
 

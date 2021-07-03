@@ -3,11 +3,23 @@ import axios from "axios";
 export default class JobAdvertisementService {
 
     add(jobAdvertisement) {
-        return axios.push("http://localhost:8080/api/jobAdvertisements/add",jobAdvertisement);
+        return axios.post("http://localhost:8080/api/jobAdvertisements/add",jobAdvertisement);
     }
 
-    getJobAdvertisement() {
+    setActiveJobAdvertisement(jobAdvertisementId) {
+        return axios.post("http://localhost:8080/api/jobAdvertisements/setActiveJobAdvertisement?jobAdvertisementId="+jobAdvertisementId);
+    } 
+
+    getAll() {
         return axios.get("http://localhost:8080/api/jobAdvertisements/getall");
+    }
+
+    getByIsActiveTrue() {
+        return axios.get("http://localhost:8080/api/jobAdvertisements/getByIsActiveTrue");
+    }
+
+    getByIsActiveFalse() {
+        return axios.get("http://localhost:8080/api/jobAdvertisements/getByIsActiveFalse");
     }
 
     getByActivity() {

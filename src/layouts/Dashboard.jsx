@@ -6,7 +6,8 @@ import Employee from "../pages/Employee";
 import EmployeeDetail from "../pages/EmployeeDetail";
 import Favorites from "../pages/Favorites";
 import JobAdvertisement from "../pages/JobAdvertisement";
-import jobAdvertisementAdd from "../pages/jobAdvertisementAdd";
+import JobAdvertisementAdd from "../pages/JobAdvertisementAdd";
+import JobAdvertisementConfirm from "../pages/jobAdvertisementConfirm";
 import Sidebar from "./Sidebar";
 
 export default function Dashboard() {
@@ -19,12 +20,13 @@ export default function Dashboard() {
             <Sidebar />
           </Grid.Column>
           <Grid.Column width={12}>
-            <Route exact path="/" component={JobAdvertisement}/>
+           <Route exact path="/" component={JobAdvertisement}/>
             <Route exact path="/jobAdvertisements" component={JobAdvertisement}/>
+            <Route exact path="/jobAdvertisementAdd" component={JobAdvertisementAdd}/>
+            <Route exact path="/jobAdvertisementsConfirm" component={JobAdvertisementConfirm}/>
             <Route exact path="/employee" component={Employee}/>
             <Route exact path="/employee/:id" component={EmployeeDetail}/>
             <Route exact path="/favorites" component={Favorites}/>
-            <Route exact path="/jobAdvertisementAdd" component={jobAdvertisementAdd}/>
           </Grid.Column>
         </Grid.Row>
       </Grid>
