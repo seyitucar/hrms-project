@@ -13,7 +13,11 @@ export default function JobAdvertisement() {
 
     useEffect(() => {
         let jobAdvertisementService = new JobAdvertisementService();
+<<<<<<< HEAD
         jobAdvertisementService.getByIsActiveTrue().then((result) => setJobAdvertisements(result.data.data))
+=======
+        jobAdvertisementService.getJobAdvertisement().then((result) => setJobAdvertisements(result.data.data))
+>>>>>>> c1a3ea4659404f2df217e13b1ade1d1069de638d
     }, [])
 
     const handleAddToFavorites = (jobAdvertisement) => {
@@ -43,7 +47,11 @@ export default function JobAdvertisement() {
                             <div className="ui two buttons">
                                 <Button basic color="green">
                                     Başvur
+<<<<<<< HEAD
                                  </Button>
+=======
+                </Button>
+>>>>>>> c1a3ea4659404f2df217e13b1ade1d1069de638d
                             </div>
                         </Card.Content>
                     </Card>
