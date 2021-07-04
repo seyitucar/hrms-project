@@ -1,11 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import * as Yup from 'yup'
 import { Formik, Form } from 'formik'
-<<<<<<< HEAD
 import { Button, Grid, Icon } from 'semantic-ui-react'
-=======
-import { Button, Icon } from 'semantic-ui-react'
->>>>>>> c1a3ea4659404f2df217e13b1ade1d1069de638d
 import HrmsTextInput from '../utilities/customFormControls/HrmsTextInput'
 import HrmsNumberInput from '../utilities/customFormControls/HrmsNumberInput'
 import HrmsDateInput from '../utilities/customFormControls/HrmsDateInput'
@@ -64,7 +60,6 @@ export default function JobAdvertisementAdd() {
         cityService.getAll().then(result => setCities(result.data.data))
 
         let jobTitleService = new JobTitleService()
-<<<<<<< HEAD
         jobTitleService.getAll().then(result => setJobTitle(result.data.data))
 
         let workingTypeService = new WorkingTypeService()
@@ -72,15 +67,6 @@ export default function JobAdvertisementAdd() {
 
         let workingPlaceService = new WorkingPlaceService()
         workingPlaceService.getAll().then(result => setWorkingPlace(result.data.data))
-=======
-        jobTitleService.getAll().then(result=>setJobTitle(result.data.data))
-
-        let workingTypeService = new WorkingTypeService ()
-        workingTypeService.getAll().then(result=>setWorkingType(result.data.data))
-
-        let workingPlaceService = new WorkingPlaceService()
-        workingPlaceService.getAll().then(result=>setWorkingPlace(result.data.data))
->>>>>>> c1a3ea4659404f2df217e13b1ade1d1069de638d
 
     }, [])
 
@@ -132,7 +118,6 @@ export default function JobAdvertisementAdd() {
                 initialValues={initialValues}
                 validationSchema={schema}
                 onSubmit={(values) => {
-<<<<<<< HEAD
                     console.log(values)
                     let jobAdvertisementService = new JobAdvertisementService();
                     jobAdvertisementService.add(handleJobAdvertisementValue(values)).then(toast.success("İş ilanı eklendi"))
@@ -162,27 +147,6 @@ export default function JobAdvertisementAdd() {
                         <Button type="submit" icon labelPosition="right" color="green" >Ekle<Icon name="add"></Icon></Button>
                         </Grid.Column>
                     </Grid>      
-=======
-                        console.log(values)
-                        let jobAdvertisementService = new JobAdvertisementService();
-                        jobAdvertisementService.add(handleJobAdvertisementValue(values)).then(toast.success("İş ilanı eklendi"))
-                        history.push("/jobAdvertisements")
-                }}
-            >
-                <Form className="ui form">
-                    <HrmsTextInput name="jobDescription" placeholder="jobDescription" />
-                    <HrmsNumberInput name="minSalary" placeholder="minSalary" />
-                    <HrmsNumberInput name="maxSalary" placeholder="maxSalary" />
-                    <HrmsNumberInput name="numberOfOpenPosition" placeholder="numberOfOpenPosition" />
-                    <HrmsDateInput name="applicationDeadline" placeholder="applicationDeadline" />
-                    <HrmsDateInput name="closingDate" placeholder="closingDate" />
-                    <HrmsSelectInput options={cityOption} name="cityId" placeholder="Şehir Seçiniz"/>
-                    <HrmsNumberInput name="employerId" placeholder="employerId" />
-                    <HrmsSelectInput options={jobTitleOption} name="jobTitleId" placeholder="jobTitleId" />
-                    <HrmsSelectInput options={workingPlaceOption} name="workingPlaceId" placeholder="workingPlaceId" />
-                    <HrmsSelectInput options={workingTypeOption} name="workingTypeId" placeholder="workingTypeId" />
-                    <Button type="submit" icon labelPosition="right" color="green" >Ekle<Icon name="add"></Icon></Button>
->>>>>>> c1a3ea4659404f2df217e13b1ade1d1069de638d
                 </Form>
             </Formik>
         </div>
