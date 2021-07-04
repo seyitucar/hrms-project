@@ -6,8 +6,9 @@ import Employee from "../pages/Employee";
 import EmployeeDetail from "../pages/EmployeeDetail";
 import Favorites from "../pages/Favorites";
 import JobAdvertisement from "../pages/JobAdvertisement";
-import JobAdvertisementAdd from "../pages/JobAdvertisementAdd";
-import JobAdvertisementConfirm from "../pages/jobAdvertisementConfirm";
+import JobAdvertisementAdd from "../pages/jobAdvertisementAdd";
+import JobAdvertisementConfirm from "../pages/JobAdvertisementConfirm"; 
+import JobAdvertisementPassive from "../pages/JobAdvertisementPassive";
 import Sidebar from "./Sidebar";
 
 export default function Dashboard() {
@@ -24,6 +25,7 @@ export default function Dashboard() {
             <Route exact path="/jobAdvertisements" component={JobAdvertisement}/>
             <Route exact path="/jobAdvertisementAdd" component={JobAdvertisementAdd}/>
             <Route exact path="/jobAdvertisementsConfirm" component={JobAdvertisementConfirm}/>
+            <Route exact path="/jobAdvertisementsPassive" component={JobAdvertisementPassive}/>
             <Route exact path="/employee" component={Employee}/>
             <Route exact path="/employee/:id" component={EmployeeDetail}/>
             <Route exact path="/favorites" component={Favorites}/>

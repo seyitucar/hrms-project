@@ -21,6 +21,7 @@ export default function JobAdvertisement() {
         toast.success(`${jobAdvertisement.jobTitle.titleName} sepete eklendi`)
     }
 
+
     return (
         <div>
             <Card.Group>
@@ -49,6 +50,6 @@ export default function JobAdvertisement() {
                     </Card>
                 ))}
             </Card.Group>
-        </div>
+        </div>      
     )
 }

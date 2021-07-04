@@ -10,6 +10,10 @@ export default class JobAdvertisementService {
         return axios.post("http://localhost:8080/api/jobAdvertisements/setActiveJobAdvertisement?jobAdvertisementId="+jobAdvertisementId);
     } 
 
+    setPassiveJobAdvertisement(jobAdvertisementId) {
+        return axios.post("http://localhost:8080/api/jobAdvertisements/setPassiveJobAdvertisement?jobAdvertisementId="+jobAdvertisementId);
+    } 
+
     getAll() {
         return axios.get("http://localhost:8080/api/jobAdvertisements/getall");
     }

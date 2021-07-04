@@ -2,19 +2,18 @@ import React, { useEffect, useState } from 'react'
 import { Button, Icon, Table } from 'semantic-ui-react'
 import JobAdvertisementService from '../services/jobAdvertisementService'
 
-
-export default function JobAdvertisementConfirm() {
+export default function JobAdvertisementPassive() {
 
     const [jobAdvertisements, setJobAdvertisements] = useState([])
 
     useEffect(() => {
         let jobAdvertisementService = new JobAdvertisementService();
-        jobAdvertisementService.getByIsActiveFalse().then((result) => setJobAdvertisements(result.data.data))
+        jobAdvertisementService.getByIsActiveTrue().then((result) => setJobAdvertisements(result.data.data))
     }, [])
 
-    const handleJobAdvertisementConfirm = (jobAdvertisementId) => {
+    const handleJobAdvertisementPassive = (jobAdvertisementId) => {
         let jobAdvertisementService = new JobAdvertisementService();
-        jobAdvertisementService.setActiveJobAdvertisement(jobAdvertisementId).then((result)=>setJobAdvertisements(result.data.data))
+        jobAdvertisementService.setPassiveJobAdvertisement(jobAdvertisementId).then((result)=>setJobAdvertisements(result.data.data))
         window.location.reload();
     }
 
@@ -41,7 +40,7 @@ export default function JobAdvertisementConfirm() {
                             <Table.Cell>{jobAdvertisement.employer.id} - {jobAdvertisement.employer.companyName}</Table.Cell>
                             <Table.Cell>{jobAdvertisement.isActive}</Table.Cell>
                             <Table.HeaderCell>
-                                <Button onClick={()=>handleJobAdvertisementConfirm(jobAdvertisement.id)} basic color='green' size="tiny"><Icon name='check' />İlanı Onayla</Button>
+                                <Button onClick={()=>handleJobAdvertisementPassive(jobAdvertisement.id)} basic color='red' size="tiny"><Icon name='remove' />İlanı Pasifleştir</Button>
                             </Table.HeaderCell>
                         </Table.Row>
                     ))}

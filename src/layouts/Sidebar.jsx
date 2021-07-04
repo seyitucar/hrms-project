@@ -15,11 +15,6 @@ export default function Sidebar() {
           Job Advertisements
         </Menu.Item>
 
-        <Menu.Item as={NavLink} to="/jobAdvertisementsConfirm" name='jobAdvertisementsConfirm'>
-          <Icon name='announcement' />
-          Job Advertisements Confirm
-        </Menu.Item>
-
 
         <Menu.Item as={NavLink} to="/employee" name='employee'>
           <Icon name='handshake outline' />
@@ -32,32 +27,24 @@ export default function Sidebar() {
         </Menu.Item>
 
         <Menu.Item>
-          Resume
+        <Icon name='checkmark box' />
+          Job Advertisement Management
           <Menu.Menu>
-            <Menu.Item
-              name='search'
 
-            >
-              School
-            </Menu.Item>
             <Menu.Item
-              name='add'
+              as={NavLink} to="/jobAdvertisementsConfirm" name='jobAdvertisementsConfirm'
+            >
+              <Icon name='announcement' />
+              Approve Job Advertisements
+            </Menu.Item>
 
-            >
-              Skill
-            </Menu.Item>
             <Menu.Item
-              name='about'
-    
+               as={NavLink} to="/jobAdvertisementsPassive" name='jobAdvertisementsPassive'
             >
-              Language
+              <Icon name='remove' />
+              Set Passive Job Advertisements
             </Menu.Item>
-            <Menu.Item
-              name='search'
-
-            >
-              Job Experience
-            </Menu.Item>
+        
           </Menu.Menu>
         </Menu.Item>
 
