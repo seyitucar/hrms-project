@@ -10,42 +10,24 @@ export default function Sidebar() {
           <Input placeholder='Search...' />
         </Menu.Item>
 
-        <Menu.Item as={NavLink} to="/jobAdvertisements" name='jobAdvertisements'>
-          <Icon name='list' />
+        <Menu.Item as={NavLink} to="/jobAdvertisementList" name='jobAdvertisementList'>
+          <Icon name='globe' />
           Job Advertisements
         </Menu.Item>
 
-
-        <Menu.Item as={NavLink} to="/employee" name='employee'>
-          <Icon name='handshake outline' />
-          Employee List
+        <Menu.Item as={NavLink} to="/employeeDashboard" name='İş Arayan Ekranı'>
+          <Icon name='chess rook' />
+          İş Arayan Ekranı
         </Menu.Item>
 
-        <Menu.Item as={NavLink} to="/jobAdvertisementAdd" name='jobAdvertisementAdd'>
-          <Icon name='band aid' />
-          JobAdvertisement Add
+        <Menu.Item as={NavLink} to="/employerDashboard" name='İş Veren Ekranı'>
+          <Icon name='chess queen' />
+          İş Veren Ekranı
         </Menu.Item>
 
-        <Menu.Item>
-        <Icon name='checkmark box' />
-          Job Advertisement Management
-          <Menu.Menu>
-
-            <Menu.Item
-              as={NavLink} to="/jobAdvertisementsConfirm" name='jobAdvertisementsConfirm'
-            >
-              <Icon name='announcement' />
-              Approve Job Advertisements
-            </Menu.Item>
-
-            <Menu.Item
-               as={NavLink} to="/jobAdvertisementsPassive" name='jobAdvertisementsPassive'
-            >
-              <Icon name='remove' />
-              Set Passive Job Advertisements
-            </Menu.Item>
-        
-          </Menu.Menu>
+        <Menu.Item as={NavLink} to="/adminDashboard" name='Sistem Kullanıcı Ekranı'>
+          <Icon name='chess king' />
+          Sistem Kullanıcı Ekranı
         </Menu.Item>
 
         <Dropdown item text='Profil'>

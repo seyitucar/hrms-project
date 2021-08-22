@@ -7,6 +7,8 @@ export default function FavoritesSummary() {
 
     const {favoritesItems} = useSelector(state => state.favorites)
 
+    console.log(favoritesItems)
+
     return (
         <div>
             <Dropdown item text="Favoriler">
@@ -17,7 +19,7 @@ export default function FavoritesSummary() {
                         ))
                     }                   
                     <Dropdown.Divider />
-                    <Dropdown.Item as={NavLink} to="/favorites">Favorilere Git</Dropdown.Item>
+                    <Dropdown.Item as={NavLink} to="/favoriteList">Favorilere Git</Dropdown.Item>
                 </Dropdown.Menu>
             </Dropdown>
         </div>

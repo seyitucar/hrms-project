@@ -14,4 +14,8 @@ export default class ResumeService {
     getByEmployeeId(employeeId) {
         return axios.get("http://localhost:8080/api/resumes/getByEmployeeId?employeeId="+employeeId);
     }
+
+    getById(resumeId) {
+        return axios.get("http://localhost:8080/api/resumes/getById?resumeId="+resumeId);
+    }
 }

@@ -9,7 +9,7 @@ export default function HrmsTextInput({...props}) {
     const [field,meta] = useField(props)
 
     return (
-        <FormField error={meta.touched && !!meta.error}>
+        <FormField style={{ margin: "0.5em" }} error={meta.touched && !!meta.error}>
             <input {...field} {...props}/>
             {meta.touched && !!meta.error ? (
               <Label pointing basic color="red" content={meta.error}></Label>  
