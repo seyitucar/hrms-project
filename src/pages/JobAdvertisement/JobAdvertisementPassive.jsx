@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { toast } from 'react-toastify'
 import { Button, Icon, Table } from 'semantic-ui-react'
+import jobAdvertisementConfirmServie from '../../services/jobAdvertisementConfirmServie'
 import JobAdvertisementService from '../../services/jobAdvertisementService'
 
 export default function JobAdvertisementPassive() {
@@ -21,9 +22,11 @@ export default function JobAdvertisementPassive() {
         })
     }, [jobAdvertisements])
 
-    const handleJobAdvertisementPassive = (jobAdvertisementId) => {
-        let jobAdvertisementService = new JobAdvertisementService();
-        jobAdvertisementService.setPassiveJobAdvertisement(jobAdvertisementId).then(result => toast.error(result.data.message));
+    const handleJobAdvertisementPassive = (jobAdvertisement,employer) => {
+        let jobAdvertiseentConfirmService = new jobAdvertisementConfirmServie();
+        let systemUser = {id:12} // loginden gelecek
+        let jobAdvertisementConfirmationValue={jobAdvertisement,employer,systemUser};
+        jobAdvertiseentConfirmService.setPassiveJobAdvertisement(jobAdvertisementConfirmationValue).then(result=>toast.success(result.data.message));
     }
 
     return (
@@ -49,7 +52,7 @@ export default function JobAdvertisementPassive() {
                             <Table.Cell>{jobAdvertisement.employer.id} - {jobAdvertisement.employer.companyName}</Table.Cell>
                             <Table.Cell>{jobAdvertisement.isActive}</Table.Cell>
                             <Table.HeaderCell>
-                                <Button onClick={() => handleJobAdvertisementPassive(jobAdvertisement.id)} basic color='red' size="tiny"><Icon name='remove' />İlanı Pasifleştir</Button>
+                                <Button onClick={() => handleJobAdvertisementPassive(jobAdvertisement,jobAdvertisement.employer)} basic color='red' size="tiny"><Icon name='remove' />İlanı Pasifleştir</Button>
                             </Table.HeaderCell>
                         </Table.Row>
                     ))}

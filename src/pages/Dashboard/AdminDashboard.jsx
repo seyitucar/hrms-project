@@ -4,7 +4,6 @@ import { Card } from 'semantic-ui-react'
 
 function AdminDashboard() {
 
-
     return (
         <Card.Group>
             <Card>
@@ -22,6 +21,30 @@ function AdminDashboard() {
             <Card>
                 <Card.Content>
                     <Card.Header><Link to={`/skill`}>Yetenek Düzeni</Link></Card.Header>
+                </Card.Content>
+            </Card>
+
+            <Card>
+                <Card.Content>
+                    <Card.Header><Link to={`/jobTitle`}>Pozisyon İsmi Düzeni</Link></Card.Header>
+                </Card.Content>
+            </Card>
+
+            <Card>
+                <Card.Content>
+                    <Card.Header><Link to={`/city`}>Şehir İsmi Düzeni</Link></Card.Header>
+                </Card.Content>
+            </Card>
+
+            <Card>
+                <Card.Content>
+                    <Card.Header><Link to={`/workingPlace`}>Çalışma Yeri Düzeni</Link></Card.Header>
+                </Card.Content>
+            </Card>
+
+            <Card>
+                <Card.Content>
+                    <Card.Header><Link to={`/workingType`}>Çalışma Tipi Düzeni</Link></Card.Header>
                 </Card.Content>
             </Card>
 

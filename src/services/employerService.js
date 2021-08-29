@@ -7,10 +7,6 @@ export default class EmployerService {
         return axios.post("http://localhost:8080/api/employers/add",employer);
     }
 
-    update(employer) {
-        return axios.post("http://localhost:8080/api/employerUpdates/add",employer);
-    }
-
     delete(id) {
         return axios.post("http://localhost:8080/api/employers/delete?id="+id);
     }

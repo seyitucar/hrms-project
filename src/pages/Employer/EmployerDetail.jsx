@@ -27,13 +27,17 @@ export default function EmployerDetail() {
         employerUpdateService.getByEmployerIdAndIsVerifiedFalse(id).then((result) => setEmployerUpdate(result.data.data));
     }, [id]);
 
-    const handleEmployerUpdateConfirm = (systemUserId, employerId, employerUpdateId, isVerified) => {
+    const handleEmployerUpdateConfirm = (employer, employerUpdate) => {
         async function onayla() {
+            let systemUser = {id:12} // loginden gelecek
             let employerUpdateConfirmService = new EmployerUpdateConfirmService();
-            let response = await employerUpdateConfirmService.verifyEmployerUpdate(systemUserId, employerId, employerUpdateId, isVerified).then(toast.success("Onaylandı"))
+            let employerUdateValue = {employer,employerUpdate, systemUser}
+            console.log(employerUdateValue)
+            let response = await employerUpdateConfirmService.verifyEmployerUpdate(employerUdateValue)
 
             console.log(response)
             if (response?.data.success) {
+                toast.success("Onaylandı");
                 history.push("/employer")
 
             }
@@ -42,12 +46,16 @@ export default function EmployerDetail() {
         onayla();
     }
 
-    const handleEmployerUpdateReject = (systemUserId,employerId, employerUpdateId) => {
+    const handleEmployerUpdateReject = (employer, employerUpdate) => {
         async function reddet() {
+            let systemUser = {id:12} // loginden gelecek
             let employerUpdateConfirmService = new EmployerUpdateConfirmService();
-            let response = await employerUpdateConfirmService.rejectEmployerUpdate(systemUserId,employerId, employerUpdateId).then(toast.error("İşveren bilgileri reddedildi"));
-
+            let employerUdateValue = {employer, employerUpdate, systemUser}
+            console.log(employerUdateValue)
+            let response = await employerUpdateConfirmService.rejectEmployerUpdate(employerUdateValue);
+            
             if (response.data.success) {
+                toast.error("İşveren bilgileri reddedildi");
                 history.push("/employer")
             }
         }
@@ -58,8 +66,8 @@ export default function EmployerDetail() {
         <div>
             {employerUpdate &&
                 <Card.Content extra>
-                    <Button onClick={() => { handleEmployerUpdateConfirm(12, employerUpdate.employerId, employerUpdate.id) }} color="green" content="Değişiklikleri Onayla" />
-                    <Button onClick={() => { handleEmployerUpdateReject(12, employerUpdate.employerId, employerUpdate.id) }} color="red" content="Değişiklikleri Reddet" />
+                    <Button onClick={() => { handleEmployerUpdateConfirm(employer, employerUpdate) }} color="green" content="Değişiklikleri Onayla" />
+                    <Button onClick={() => { handleEmployerUpdateReject(employer, employerUpdate) }} color="red" content="Değişiklikleri Reddet" />
                 </Card.Content>
             }
 

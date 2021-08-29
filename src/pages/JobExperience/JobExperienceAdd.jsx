@@ -17,7 +17,7 @@ function JobExperienceAdd() {
         positionName : "",
         jobStartDate : "",
         jobLeaveDate : "",
-        employeeId : 4,
+        employeeId : 7,
         resumeId: 1
     }
 

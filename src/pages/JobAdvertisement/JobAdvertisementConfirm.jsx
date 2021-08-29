@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { toast } from 'react-toastify'
 import { Button, Icon, Table } from 'semantic-ui-react'
+import jobAdvertisementConfirmServie from '../../services/jobAdvertisementConfirmServie'
 import JobAdvertisementService from '../../services/jobAdvertisementService'
 
 
@@ -21,9 +22,11 @@ export default function JobAdvertisementConfirm() {
         })
     }, [jobAdvertisements])
 
-    const handleJobAdvertisementConfirm = (jobAdvertisementId) => {
-        let jobAdvertisementService = new JobAdvertisementService();
-        jobAdvertisementService.setActiveJobAdvertisement(jobAdvertisementId).then(result => toast.success(result.data.message));
+    const handleJobAdvertisementConfirm = (jobAdvertisement, employer) => {
+        let jobAdvertiseentConfirmService = new jobAdvertisementConfirmServie();
+        let systemUser = {id:12} // loginden gelecek
+        let jobAdvertisementConfirmationValue={jobAdvertisement,employer,systemUser};
+        jobAdvertiseentConfirmService.setActiveJobAdvertisement(jobAdvertisementConfirmationValue).then(result=>toast.success(result.data.message));
     }
 
     return (
@@ -49,7 +52,7 @@ export default function JobAdvertisementConfirm() {
                             <Table.Cell>{jobAdvertisement.employer.id} - {jobAdvertisement.employer.companyName}</Table.Cell>
                             <Table.Cell>{jobAdvertisement.isActive}</Table.Cell>
                             <Table.HeaderCell>
-                                <Button onClick={() => handleJobAdvertisementConfirm(jobAdvertisement.id)} basic color='green' size="tiny"><Icon name='check' />İlanı Onayla</Button>
+                                <Button onClick={() => handleJobAdvertisementConfirm(jobAdvertisement, jobAdvertisement.employer)} basic color='green' size="tiny"><Icon name='check' />İlanı Onayla</Button>
                             </Table.HeaderCell>
                         </Table.Row>
                     ))}

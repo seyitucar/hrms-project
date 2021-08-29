@@ -30,7 +30,7 @@ function EmployeeSocialMediaAdd() {
     const initialValues = {
         socialMediaId: "",
         socialMediaAdress:"",
-        employeeId: 4,
+        employeeId: 7,
         resumeId : 1
     }
 

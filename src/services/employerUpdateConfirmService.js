@@ -3,12 +3,12 @@ import axios from "axios";
 export default class EmployerUpdateConfirmService {
 
 
-    verifyEmployerUpdate(systemUserId, employerId, employerUpdateId) {
-        return axios.post("http://localhost:8080/api/employerUpdateConfirms/verifyEmployerUpdate?employerId="+employerId+"&employerUpdateId="+employerUpdateId+"&systemUserId="+systemUserId);
+    verifyEmployerUpdate(employerUpdateConfirm) {
+        return axios.post("http://localhost:8080/api/employerUpdateConfirms/verifyEmployerUpdate",employerUpdateConfirm);
     }
 
-    rejectEmployerUpdate(systemUserId, employerId, employerUpdateId) {
-        return axios.post("http://localhost:8080/api/employerUpdateConfirms/rejectEmployerUpdate?employerId="+employerId+"&employerUpdateId="+employerUpdateId+"&systemUserId="+systemUserId);
+    rejectEmployerUpdate(employerUpdateConfirm) {
+        return axios.post("http://localhost:8080/api/employerUpdateConfirms/rejectEmployerUpdate",employerUpdateConfirm);
     }
 
     getByIsVerifiedFalse() {

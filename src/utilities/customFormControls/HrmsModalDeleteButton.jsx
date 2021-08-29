@@ -5,8 +5,6 @@ function HrmsModalDeleteButton({ onClick,...props }) {
 
     const [open, setOpen] = useState(false)
 
-    console.log(props)
-
     return (
         <Modal
             size="tiny"

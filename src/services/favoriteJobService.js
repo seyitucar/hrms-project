@@ -18,12 +18,12 @@ export default class FavoriteJobService {
         return axios.get("http://localhost:8080/api/favoriteJobs/getById?favoriteJobId="+favoriteJobId);
     }
 
-    getByEmployeeId(employeeId) {
-        return axios.get("http://localhost:8080/api/favoriteJobs/getByEmployeeId?employeeId="+employeeId);
+    getAllByEmployeeId(employeeId) {
+        return axios.get("http://localhost:8080/api/favoriteJobs/getAlByEmployeeId?employeeId="+employeeId);
     }
 
-    getFavoriteByEmployeeIdAndJobAdvertisementId(employeeId,jobAdvertisementId) {
-        return axios.get("http://localhost:8080/api/favoriteJobs/getFavoriteByEmployeeIdAndJobAdvertisementId?employeeId="+employeeId+"&jobAdvertisementId="+jobAdvertisementId);
+    getByEmployeeIdAndJobAdvertisementId(employeeId,jobAdvertisementId) {
+        return axios.get("http://localhost:8080/api/favoriteJobs/getByEmployeeIdAndJobAdvertisementId?employeeId="+employeeId+"&jobAdvertisementId="+jobAdvertisementId);
     }
     
 }

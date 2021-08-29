@@ -2,16 +2,20 @@ import React from "react";
 import { Route } from "react-router";
 import { ToastContainer } from "react-toastify";
 import { Grid } from "semantic-ui-react";
-import AdminDashboard from "../pages/AdminDashboard";
-import AllUsers from "../pages/AllUsers";
+import City from "../pages/City/City";
+import CityAdd from "../pages/City/CityAdd";
+import CityUpdate from "../pages/City/CityUpdate";
 import CoverLetter from "../pages/CoverLetter/CoverLetter";
 import CoverLetterAdd from "../pages/CoverLetter/CoverLetterAdd";
 import CoverLetterUpdate from "../pages/CoverLetter/CoverLetterUpdate";
+import AdminDashboard from "../pages/Dashboard/AdminDashboard";
+import AllUsers from "../pages/Dashboard/AllUsers";
+import EmployeeDashboard from "../pages/Dashboard/EmployeeDashboard";
+import EmployerDashboard from "../pages/Dashboard/EmployerDashboard";
 import Employee from "../pages/Employee/Employee";
 import EmployeeAdd from "../pages/Employee/EmployeeAdd";
 import EmployeeDetail from "../pages/Employee/EmployeeDetail";
 import EmployeeUpdate from "../pages/Employee/EmployeeUpdate";
-import EmployeeDashboard from "../pages/EmployeeDashboard";
 import EmployeeLanguage from "../pages/EmployeeLanguage/EmployeeLanguage";
 import EmployeeLanguageAdd from "../pages/EmployeeLanguage/EmployeeLanguageAdd";
 import EmployeeLanguageUpdate from "../pages/EmployeeLanguage/EmployeeLanguageUpdate";
@@ -22,7 +26,6 @@ import Employer from "../pages/Employer/Employer";
 import EmployerAdd from "../pages/Employer/EmployerAdd";
 import EmployerDetail from "../pages/Employer/EmployerDetail";
 import EmployerUpdate from "../pages/Employer/EmployerUpdate";
-import EmployerDashboard from "../pages/EmployerDashboard";
 import FavoriteList from "../pages/FavoriteList/FavoriteList";
 import JobAdvertisementAdd from "../pages/JobAdvertisement/JobAdvertisementAdd";
 import JobAdvertisementConfirm from "../pages/JobAdvertisement/JobAdvertisementConfirm";
@@ -33,6 +36,9 @@ import JobAdvertisementUpdateList from "../pages/JobAdvertisement/JobAdvertiseme
 import JobExperience from "../pages/JobExperience/JobExperience";
 import JobExperienceAdd from "../pages/JobExperience/JobExperienceAdd";
 import JobExperienceUpdate from "../pages/JobExperience/JobExperienceUpdate";
+import JobTitle from "../pages/JobTitle/JobTitle";
+import JobTitleAdd from "../pages/JobTitle/JobTitleAdd";
+import JobTitleUpdate from "../pages/JobTitle/JobTitleUpdate";
 import Language from "../pages/Language/Language";
 import LanguageAdd from "../pages/Language/LanguageAdd";
 import LanguageUpdate from "../pages/Language/LanguageUpdate";
@@ -50,6 +56,12 @@ import SystemUser from "../pages/SystemUser/SystemUser";
 import SystemUserAdd from "../pages/SystemUser/SystemUserAdd";
 import SystemUserDetail from "../pages/SystemUser/SystemUserDetail";
 import SystemUserUpdate from "../pages/SystemUser/SystemUserUpdate";
+import WorkingPlace from "../pages/WorkingPlace/WorkingPlace";
+import WorkingPlaceAdd from "../pages/WorkingPlace/WorkingPlaceAdd";
+import WorkingPlaceUpdate from "../pages/WorkingPlace/WorkingPlaceUpdate";
+import WorkingType from "../pages/WorkingType/WorkingType";
+import WorkingTypeAdd from "../pages/WorkingType/WorkingTypeAdd";
+import WorkingTypeUpdate from "../pages/WorkingType/WorkingTypeUpdate";
 import Sidebar from "./Sidebar";
 import VerticalFilter from "./VerticalFilter";
 
@@ -122,6 +134,23 @@ export default function Dashboard() {
             <Route exact path="/systemUser/:id" component={SystemUserDetail}/>
             <Route exact path="/systemUserAdd" component={SystemUserAdd}/>
             <Route exact path="/systemUserUpdate/:id" component={SystemUserUpdate}/>
+
+            <Route exact path="/jobTitle" component={JobTitle}/>
+            <Route exact path="/jobTitleAdd" component={JobTitleAdd}/>
+            <Route exact path="/jobTitleUpdate/:id" component={JobTitleUpdate}/>
+
+            <Route exact path="/workingPlace" component={WorkingPlace}/>
+            <Route exact path="/workingPlaceAdd" component={WorkingPlaceAdd}/>
+            <Route exact path="/workingPlaceUpdate/:id" component={WorkingPlaceUpdate}/>
+
+            
+            <Route exact path="/workingType" component={WorkingType}/>
+            <Route exact path="/workingTypeAdd" component={WorkingTypeAdd}/>
+            <Route exact path="/workingTypeUpdate/:id" component={WorkingTypeUpdate}/>
+
+            <Route exact path="/city" component={City}/>
+            <Route exact path="/cityAdd" component={CityAdd}/>
+            <Route exact path="/cityUpdate/:id" component={CityUpdate}/>
 
             <Route exact path="/verticalFilter" component={VerticalFilter}/>
 

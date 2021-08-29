@@ -9,7 +9,7 @@ function FavoriteList() {
 
     useEffect(() => {
         let favoriteJobService = new FavoriteJobService();
-        favoriteJobService.getByEmployeeId(7).then(result => setFavoriteJobs(result.data.data))
+        favoriteJobService.getAllByEmployeeId(7).then(result => setFavoriteJobs(result.data.data))
     }, [])
 
     const favoriteList = favoriteJobs.map(favoriteJob => (

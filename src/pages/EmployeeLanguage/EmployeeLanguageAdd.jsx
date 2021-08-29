@@ -26,7 +26,7 @@ function EmployeeLanguageAdd() {
     }))
 
     const initialValues = {
-        employeeId: 4,
+        employeeId: 7,
         languageId: "",
         languageLevel: "",
         resumeId: 1

@@ -15,7 +15,7 @@ function JobAdvertisement({jobAdvertisement}) {
 
     useEffect(() => {
        let favoriteJobService = new FavoriteJobService();
-       favoriteJobService.getFavoriteByEmployeeIdAndJobAdvertisementId(7,jobAdvertisement.id).then(result=>setIsFavorite(result.data.data));
+       favoriteJobService.getByEmployeeIdAndJobAdvertisementId(7,jobAdvertisement.id).then(result=>setIsFavorite(result.data.data));
     }, [jobAdvertisement.id])
 
     const handleFavorite = () => {

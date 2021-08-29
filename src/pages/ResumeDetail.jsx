@@ -2,22 +2,49 @@ import React, { useEffect, useState } from 'react'
 import ResumeService from '../services/resumeService'
 import { Label, Image, Card, Rating, GridColumn, Grid } from 'semantic-ui-react'
 import HrmsEditButton from '../utilities/customFormControls/HrmsEditButton';
-import HrmsDeleteButton from '../utilities/customFormControls/HrmsDeleteButton';
+import { useHistory } from 'react-router';
 
 export default function ResumeDetail() {
 
     const [resume, setResume] = useState({});
-    const [resumeList, setresumeList] = useState([])
+    const [resumeList, setresumeList] = useState([]);
+
+    let history = useHistory();
+    let user = {id:7} // loginden gelecek
 
     console.log(resumeList)
 
     useEffect(() => {
         let resumeService = new ResumeService();
-        resumeService.getByEmployeeId(7).then(result => setresumeList(result.data.data)); // To-Do CV listesi menüsü oluştur
+        resumeService.getByEmployeeId(user.id).then(result => setresumeList(result.data.data)); // To-Do CV listesi menüsü oluştur
         resumeService.getById(1).then(result => setResume(result.data.data));
-    }, [])
+    }, [user.id])
 
     console.log(resume)
+
+    const editPersonelInfoHandler = () => {
+        history.push(`/employeeUpdate/${user.id}`)
+    }
+
+    const editSummaryHandler = () => {
+        history.push(`/coverLetters`)
+    }
+
+    const editSchoolHandler = () => {
+        history.push(`/school`)
+    }
+
+    const editExperienceHandler = () => {
+        history.push(`/jobExperience`)
+    }
+
+    const editLanguageHandler = () => {
+        history.push(`/employeeLanguage`)
+    }
+
+    const editSkillHandler = () => {
+        history.push(`/skill`)
+    }
 
     return (
         <div>
@@ -28,8 +55,7 @@ export default function ResumeDetail() {
                             <Card.Header><h1 style={{ margin: "0.2em" }}>Personel Info</h1></Card.Header>
                         </GridColumn>
                         <GridColumn width="5" style={{ margin: "0.5em" }}>
-                            <HrmsEditButton/>
-                            <HrmsDeleteButton />
+                            <HrmsEditButton onClick={editPersonelInfoHandler}/>
                         </GridColumn>
                     </Grid>
                     <Card.Content>
@@ -58,8 +84,7 @@ export default function ResumeDetail() {
                             <Card.Header><h1 style={{ margin: "0.2em" }}>Summary</h1></Card.Header>
                         </GridColumn>
                         <GridColumn width="5" style={{ margin: "0.5em" }}>
-                            <HrmsEditButton />
-                            <HrmsDeleteButton />
+                            <HrmsEditButton onClick={editSummaryHandler} />
                         </GridColumn>
                     </Grid>
                     <Card.Content>
@@ -75,8 +100,7 @@ export default function ResumeDetail() {
                             <Card.Header><h1 style={{ margin: "0.2em" }}>Educations</h1></Card.Header>
                         </GridColumn>
                         <GridColumn width="5" style={{ margin: "0.5em" }}>
-                            <HrmsEditButton />
-                            <HrmsDeleteButton />
+                            <HrmsEditButton onClick={editSchoolHandler}/>
                         </GridColumn>
                     </Grid>
                     {resume.schools?.map((school) => (
@@ -97,8 +121,7 @@ export default function ResumeDetail() {
                             <Card.Header><h1 style={{ margin: "0.2em" }}>Experiences</h1></Card.Header>
                         </GridColumn>
                         <GridColumn width="5" style={{ margin: "0.5em" }}>
-                            <HrmsEditButton />
-                            <HrmsDeleteButton />
+                            <HrmsEditButton onClick={editExperienceHandler}/>
                         </GridColumn>
                     </Grid>
                     {resume.jobExperiences?.map((jobExperience) => (
@@ -118,8 +141,7 @@ export default function ResumeDetail() {
                             <Card.Header><h1 style={{ margin: "0.2em" }}>Languages</h1></Card.Header>
                         </GridColumn>
                         <GridColumn width="5" style={{ margin: "0.5em" }}>
-                            <HrmsEditButton />
-                            <HrmsDeleteButton />
+                            <HrmsEditButton onClick={editLanguageHandler}/>
                         </GridColumn>
                     </Grid>
                     {resume.employeeLanguages?.map((language) => (
@@ -135,8 +157,7 @@ export default function ResumeDetail() {
                             <Card.Header><h1 style={{ margin: "0.2em" }}>Skills</h1></Card.Header>
                         </GridColumn>
                         <GridColumn width="5" style={{ margin: "0.5em" }}>
-                            <HrmsEditButton />
-                            <HrmsDeleteButton />
+                            <HrmsEditButton onClick={editSkillHandler}/>
                         </GridColumn>
                     </Grid>
                     {resume.skills?.map((skill) => (

@@ -35,6 +35,12 @@ function EmployeeDashboard() {
                 </Card.Content>
             </Card>
 
+            <Card>
+                <Card.Content>
+                    <Card.Header><Link to={`/skill`}>Skill</Link></Card.Header>
+                </Card.Content>
+            </Card>
+
         </Card.Group>
     )
 }

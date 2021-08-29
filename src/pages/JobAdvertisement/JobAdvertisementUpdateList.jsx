@@ -11,9 +11,17 @@ function JobAdvertisementUpdateList() {
     const [jobAdvertisements, setJobAdvertisements] = useState([]);
 
     useEffect(() => {
+        let isMounted = true;
         let jobAdvertisementService = new JobAdvertisementService();
-        jobAdvertisementService.getAll().then(result => setJobAdvertisements(result.data.data));
-    }, [])
+        jobAdvertisementService.getAll().then(result => {
+            if (isMounted) {
+                setJobAdvertisements(result.data.data)
+            }
+        });
+        return (() => {
+            isMounted = false;
+        })
+    }, [jobAdvertisements])
 
     const handleUpdateClick = (id) => {
         history.push("/jobAdvertisementUpdate/" + id)
@@ -22,7 +30,7 @@ function JobAdvertisementUpdateList() {
     const handleDeleteClick = (id) => {
         let jobAdvertisementService = new JobAdvertisementService();
         jobAdvertisementService.delete(id).then((result) => toast.success(result.data.message))
-        .catch(error => toast.error("işlem tamamlanamadı" + error));
+            .catch(error => toast.error("işlem tamamlanamadı" + error));
 
         let newList = jobAdvertisements.filter(jobAdvertisement => {
             return jobAdvertisement.id !== id

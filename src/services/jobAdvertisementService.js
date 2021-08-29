@@ -38,21 +38,16 @@ export default class JobAdvertisementService {
         return axios.get("http://localhost:8080/api/jobAdvertisements/getByIsActiveFalse");
     }
 
-    getByActivity() {
-        return axios.get("http://localhost:8080/api/jobAdvertisements/getByActivity?activityStatus=true");
+    getByIsActiveTrueAndCompanyName(companyName) {
+        return axios.get("http://localhost:8080/api/jobAdvertisements/getByIsActiveTrueAndCompanyName?companyName="+companyName);
     }
 
-
-    getByActivityAndCompanyName(companyName) {
-        return axios.get("http://localhost:8080/api/jobAdvertisements/getByActivityAndCompanyName?activityStatus=true&companyName="+companyName);
+    getByIsActiveTrueOrderByApplicationDeadline() {
+        return axios.get("http://localhost:8080/api/jobAdvertisements/getByIsActiveTrueOrderByApplicationDeadline")
     }
 
-    getByActivityOrderByApplicationDeadline() {
-        return axios.get("http://localhost:8080/api/jobAdvertisements/getByActivityOrderByApplicationDeadline?activityStatus=true")
-    }
-
-    getByActivityOrderByApplicationDeadlineDesc() {
-        return axios.get("http://localhost:8080/api/jobAdvertisements/getByActivityOrderByApplicationDeadlineDesc?activityStatus=true")
+    getByIsActiveTrueOrderByApplicationDeadlineDesc() {
+        return axios.get("http://localhost:8080/api/jobAdvertisements/getByIsActiveTrueOrderByApplicationDeadlineDesc")
     }
 
     getByEmployerId(employerId) {

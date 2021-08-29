@@ -1,29 +1,27 @@
 import { Formik, Form } from 'formik'
 import React from 'react'
 import * as Yup from 'yup'
-import HrmsLongTextInput from '../../utilities/customFormControls/HrmsLongTextInput'
 import { Card, Grid, GridColumn, Button, Icon } from 'semantic-ui-react'
-import CoverLetterService from '../../services/coverLetterService'
 import { toast } from 'react-toastify'
 import { useHistory } from 'react-router'
+import JobTitleService from '../../services/jobTitleService'
+import HrmsTextInput from '../../utilities/customFormControls/HrmsTextInput'
 
-function CoverLetterAdd() {
+function JobTitleAdd() {
 
     const history = useHistory();
 
     const initialValues = {
-        description: "",
-        employeeId: "7" //to-do login den bilgi alacak
+        titleName: "",
     }
 
     const schema = Yup.object({
-        description: Yup.string().required("Açıklama zorunludur"),
+        titleName: Yup.string().required("Açıklama zorunludur"),
     })
 
-    const handleCoverLetterValue = (values) => {
+    const handleValue = (values) => {
         return {
-            description: values.description,
-            employee: { id: values.employeeId }
+            titleName: values.titleName,
         }
     }
 
@@ -34,25 +32,25 @@ function CoverLetterAdd() {
             validationSchema={schema}
             onSubmit={(values) => {
                 console.log(values)
-                let coverLetterService = new CoverLetterService();
-                coverLetterService.add(handleCoverLetterValue(values)).then(toast.success("Özet bilgi eklendi"))
-                history.push("/coverLetters")
+                let jobTitleService = new JobTitleService();
+                jobTitleService.add(handleValue(values)).then(result=>toast.success(result.data.message))
+                history.push("/jobTitle")
             }}
         >
             <Form className="ui form">
                 <Card fluid >
                     <Grid>
                         <GridColumn width="10">
-                            <Card.Header><h1 style={{ margin: "0.2em" }}>Summary</h1></Card.Header>
+                            <Card.Header><h1 style={{ margin: "0.2em" }}>Job Title</h1></Card.Header>
                         </GridColumn>
                     </Grid>
                     <Card.Content >
                         <Card.Description>
-                            <HrmsLongTextInput name="description" placeholder="description" />
+                            <HrmsTextInput name="titleName" placeholder="titleName" />
                         </Card.Description>
                     </Card.Content>
                     <Card.Content extra>
-                        <Button type="submit" floated="right" icon labelPosition="right" color="green" >Ekle<Icon name="add"></Icon></Button>
+                        <Button type="submit" floated="right" icon labelPosition="right" color="green" >Add<Icon name="add"></Icon></Button>
                     </Card.Content>
                 </Card>
             </Form>
@@ -60,4 +58,4 @@ function CoverLetterAdd() {
     )
 }
 
-export default CoverLetterAdd
+export default JobTitleAdd

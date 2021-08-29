@@ -6,6 +6,7 @@ import { Button, Card, Icon } from 'semantic-ui-react'
 import * as Yup from 'yup'
 import HrmsTextInput from '../../utilities/customFormControls/HrmsTextInput'
 import EmployerService from '../../services/employerService';
+import EmployerUpdateService from '../../services/employerUpdateService';
 
 
 function EmployerUpdate() {
@@ -24,13 +25,12 @@ function EmployerUpdate() {
     console.log(employer)
 
     const initialValues = {
-        id: employer.id || "",
         companyName: employer.companyName || "",
         website: employer.website || "",
         phoneNumber: employer.phoneNumber || "",
         email: employer.email || "",
         password: employer.password || "",
-        employerId : employer.id || ""
+        employerId : employer.id || "",
     }
 
     const schema = Yup.object({
@@ -43,14 +43,13 @@ function EmployerUpdate() {
 
     const handleEmployerSubmit = (values) => {
         return {
-            id: values.id,
             companyName: values.companyName,
             website: values.website,
             phoneNumber: values.phoneNumber,
             email: values.email,
             password: values.password,
             systemUserId : values.systemUserId,
-            employerId : values.employerId
+            employerId : values.employerId,
         }
     }
 
@@ -61,8 +60,8 @@ function EmployerUpdate() {
             enableReinitialize
             onSubmit={(values) => {
                 console.log(values)
-                let employerService = new EmployerService();
-                employerService.update(handleEmployerSubmit(values)).then(result => {
+                let employerUpdateService = new EmployerUpdateService();
+                employerUpdateService.add(handleEmployerSubmit(values)).then(result => {
                     if (result.data.success === false) {
                         toast.error(result.data.message)
                     } else {

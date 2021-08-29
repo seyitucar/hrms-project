@@ -3,8 +3,6 @@ import React from 'react'
 import { FormField, Label } from 'semantic-ui-react'
 
 export default function HrmsTextInput({...props}) {
-    //console.log(props)
-    //reflect api
 
     const [field,meta] = useField(props)
 

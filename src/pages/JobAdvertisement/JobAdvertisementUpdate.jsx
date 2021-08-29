@@ -134,8 +134,8 @@ function JobAdvertisementUpdate() {
                 onSubmit={(values) => {
                     console.log(values)
                     let jobAdvertisementService = new JobAdvertisementService();
-                    jobAdvertisementService.update(handleJobAdvertisementValue(values)).then(toast.success("İş ilanı eklendi"))
-                    history.push("/jobAdvertisementsConfirm")
+                    jobAdvertisementService.update(handleJobAdvertisementValue(values)).then(result=>toast.success(result.data.message))
+                    history.push("/jobAdvertisementUpdateList")
                 }}
             >
                 <Form className="ui form">
