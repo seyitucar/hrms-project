@@ -14,7 +14,6 @@ function School() {
     useEffect(() => {
         let schoolService = new SchoolService();
         schoolService.findAllByEmployeeIdOrderBySchoolGraduationDateDesc(7).then(result => setSchools(result.data.data))
-
     }, [])
 
     console.log(schools)

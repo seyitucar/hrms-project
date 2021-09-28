@@ -12,7 +12,7 @@ export default class EmployeeService {
     }
 
     delete(employeeId){
-        return axios.post("http://localhost:8080/api/employees/delete?employeeId="+employeeId);
+        return axios.post("http://localhost:8080/api/employees/delete?id="+employeeId);
     }
 
     getAll(){

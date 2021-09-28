@@ -58,8 +58,15 @@ function EmployeeAdd() {
                 onSubmit={(values) => {
                     console.log(values);
                     let employeeService = new EmployeeService();
-                    employeeService.add(handleEmployeeValue(values)).then(result => toast.success(result.data.message));
-                    history.push("/employee")
+                    employeeService.add(handleEmployeeValue(values)).then(result =>{
+                        if (result.data.success) {
+                            toast.success(result.data.message)
+                            history.push("/employee")
+                        } else {
+                            toast.error(result.data.message)
+                        }
+                    })
+                   
                 }}
             >
                 <Form className="ui form">

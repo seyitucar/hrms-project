@@ -1,31 +1,34 @@
-import React, { useEffect, useState } from 'react'
-import { Link, useHistory } from 'react-router-dom';
-import { Button, Icon, Table } from 'semantic-ui-react';
-import EmployeeService from '../../services/employeeService';
+import React, { useEffect, useState } from "react";
+import { Link, useHistory } from "react-router-dom";
+import { toast } from "react-toastify";
+import { Button, Icon, Table } from "semantic-ui-react";
+import EmployeeService from "../../services/employeeService";
 
 export default function Employee() {
-
   const [employees, setEmployees] = useState([]);
 
   let history = useHistory();
 
-  console.log(employees)
-
+  console.log(employees);
 
   useEffect(() => {
     let employeeService = new EmployeeService();
     employeeService.getAll().then((result) => setEmployees(result.data.data));
-
   }, []);
 
   const handleUpdateClick = (id) => {
-    history.push("/employeeUpdate/"+id)
-  }
+    history.push("/employeeUpdate/" + id);
+  };
 
   const handleDeleteClick = (id) => {
     let employeeService = new EmployeeService();
-    employeeService.delete(id).then((result) => setEmployees(result.data.data));
-  }
+    employeeService.delete(id).then((result) => toast.success(result.data.message));
+
+    let newList = employees.filter((employee) => {
+      return employee.id !== id;    
+    });
+    setEmployees(newList)
+  };
 
   return (
     <div>
@@ -42,18 +45,37 @@ export default function Employee() {
         </Table.Header>
 
         <Table.Body>
-          {employees.map((employee) => (
+          {employees?.map((employee) => (
             <Table.Row key={employee.id}>
-              <Table.Cell><Link to={`/employee/${employee.id}`}>{employee.firstName}</Link></Table.Cell>
+              <Table.Cell>
+                <Link to={`/employee/${employee.id}`}>
+                  {employee.firstName}
+                </Link>
+              </Table.Cell>
               <Table.Cell>{employee.lastName}</Table.Cell>
               <Table.Cell>{employee.email}</Table.Cell>
               <Table.Cell>{employee.nationalityId}</Table.Cell>
               <Table.Cell>{employee.birthYear}</Table.Cell>
               <Table.HeaderCell>
-                <Button onClick={()=>handleDeleteClick(employee.id)} basic color='red' size="tiny"><Icon name='delete' />Sil</Button>
-                <Button onClick={()=>handleUpdateClick(employee.id)} basic color='green' size="tiny"><Icon name='edit' />Güncelle</Button>
+                <Button
+                  onClick={() => handleDeleteClick(employee.id)}
+                  basic
+                  color="red"
+                  size="tiny"
+                >
+                  <Icon name="delete" />
+                  Sil
+                </Button>
+                <Button
+                  onClick={() => handleUpdateClick(employee.id)}
+                  basic
+                  color="green"
+                  size="tiny"
+                >
+                  <Icon name="edit" />
+                  Güncelle
+                </Button>
               </Table.HeaderCell>
-
             </Table.Row>
           ))}
         </Table.Body>
